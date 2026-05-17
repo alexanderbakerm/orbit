@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Orbit
 
-## Getting Started
+**Orbit** maps the relationships that move your career — placing each person on a power × candor grid so you can grow influence without losing integrity.
 
-First, run the development server:
+Built as a mobile-first leadership coaching app with an Anthropic-backed coach that gives you personalized guidance based on your relationship patterns.
+
+---
+
+## Stack
+
+Next.js 14 · TypeScript · Tailwind CSS · Fraunces + Inter · Lucide Icons
+
+---
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The app renders as a centered 420 px mobile column on any screen size.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design system
 
-## Learn More
+### Colors
 
-To learn more about Next.js, take a look at the following resources:
+| Token | Hex | Use |
+|---|---|---|
+| `cream` | `#EFE9D9` | App background / chrome |
+| `cream-surface` | `#F4EFE2` | Cards, nav bar |
+| `cream-sunken` | `#E8E2CE` | Input fills, skeleton loaders |
+| `forest` | `#1B3A2E` | Primary actions, active nav, FAB |
+| `sage-*` | `#E4EBD8 → #5A7048` | Avatars, accents |
+| `ink` | `#1A1F1B` | Body text |
+| `ink-muted` | `#5C625C` | Secondary labels |
+| `ink-faint` | `#8B8F87` | Placeholder, disabled |
+| `signal-good` | `#2F7A53` | Positive signals |
+| `signal-warn` | `#B8853A` | Caution signals |
+| `signal-risk` | `#A14A3A` | Risk signals |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Typography
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Font | Use |
+|---|---|---|
+| `font-serif` | Fraunces | Headings, display text |
+| `font-sans` | Inter | Body, labels, UI |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+orbit/
+├── app/
+│   ├── layout.tsx        # Root layout — fonts, MobileShell, metadata
+│   ├── page.tsx          # Home — greeting, search, insights, recent contacts
+│   ├── map/page.tsx      # 2×2 power × candor map
+│   ├── circle/page.tsx   # Your contact circle
+│   ├── profile/page.tsx  # Your profile
+│   └── log/page.tsx      # Log an interaction
+├── components/
+│   └── layout/
+│       ├── mobile-shell.tsx   # 420px column wrapper
+│       └── bottom-nav.tsx     # Home / Map / FAB / Circle / Profile
+└── lib/
+    └── utils.ts          # cn() and shared helpers
+```
+
+---
+
+## Roadmap
+
+| Checkpoint | Status | Scope |
+|---|---|---|
+| 1 — Shell + design system | ✅ Done | Next.js scaffold, Tailwind tokens, MobileShell, BottomNav, Home stub |
+| 2 — 2×2 map | 🔜 Next | Interactive power × candor canvas with contact placement |
+| 3 — Insight cards | 🔜 | Weekly pattern summaries, AI-generated observations |
+| 4 — Anthropic coach | 🔜 | Conversational coach backed by Claude API |
+| 5 — Real data | 🔜 | Contact CRUD, interaction log, persistence |
+
+---
+
+## Contributing
+
+Branch naming: `feat/<topic>`, `fix/<topic>`, `docs/<topic>`
+
+Each checkpoint ships as a PR to `main` with a test plan in the PR description.
