@@ -32,7 +32,7 @@ export function BottomNav() {
       {/* FAB sits above the bar, overlapping by ~20px */}
       <div className="absolute -top-7 left-1/2 -translate-x-1/2 pointer-events-auto">
         <Link
-          href="/coach"
+          href="/log"
           aria-label="Log an interaction"
           className={cn(
             "flex h-14 w-14 items-center justify-center rounded-full",
